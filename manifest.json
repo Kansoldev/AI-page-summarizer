@@ -1,0 +1,27 @@
+{
+  "name": "AI page summarizer",
+  "description": "A chrome extension that extracts article content and uses AI to generate bullet-point summaries, key insights, and reading time.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["activeTab", "scripting"],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.medium.com/*",
+        "*://medium.com/*",
+        "*://*.dev.to/*",
+        "*://dev.to/*",
+        "*://*.hashnode.com/*",
+        "*://hashnode.com/*",
+        "*://*.hashnode.dev/*"
+      ],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "service-worker.js"
+  }
+}

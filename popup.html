@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Page Summarizer</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <span class="logo-text">AI Page Summarizer</span>
+      </div>
+
+      <span class="badge">Powered by Gemini AI</span>
+    </header>
+
+    <main class="content">
+      <div id="idle-state">
+        <div class="idle-icon">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#7a7a8c"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+            <polyline points="14,2 14,8 20,8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+            <polyline points="10,9 9,9 8,9" />
+          </svg>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center">
+          <div class="idle-title">Navigate to an article</div>
+          <div class="idle-sub" style="margin-top: 6px">
+            Open any article page and click <em>Summarize this page</em> to
+            extract and distill its content.
+          </div>
+        </div>
+      </div>
+
+      <div id="loadingState" class="loading-state">
+        <span class="loader"></span>
+      </div>
+
+      <div id="results-state">
+        <div class="meta-bar">
+          <span class="meta-title"
+            >Article: <span id="article-title"></span
+          ></span>
+          <span class="reading-time-badge" id="reading-time">— min read</span>
+        </div>
+
+        <div class="section">
+          <div class="section-header">
+            <span class="section-title">Summary</span>
+          </div>
+
+          <ul class="bullet-list" id="summary-list"></ul>
+        </div>
+
+        <div class="section">
+          <div class="section-header">
+            <span class="section-title">Key Insights</span>
+          </div>
+
+          <ul class="insight-list" id="insights-list"></ul>
+        </div>
+      </div>
+
+      <div id="error-state">
+        <div class="error-msg">
+          <strong id="error-title">Something went wrong</strong>
+          <span id="error-body"
+            >Could not summarize this page. Please try again after reloading the
+            page</span
+          >
+        </div>
+      </div>
+
+      <button id="summarize-btn" class="btn">Summarize this page</button>
+      <button
+        id="clear"
+        class="btn"
+        style="
+          border: 2px solid #05050d;
+          background-color: #fff;
+          color: #05050d;
+        "
+      >
+        Clear
+      </button>
+    </main>
+  </body>
+
+  <script src="./popup.js"></script>
+</html>
