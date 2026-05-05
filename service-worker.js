@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000/summarize";
+const API_URL = "https://ai-page-summarizer-backend.onrender.com/summarize";
 
 // Rough average adult reading speed (WPM – words per minute).
 const WPM = 238;
